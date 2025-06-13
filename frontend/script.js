@@ -1,5 +1,5 @@
 // URL del backend API - configurada para DigitalOcean
-const API_BASE_URL = 'https://final-telematica-phising-jy3t3.ondigitalocean.app/proyecto-final-telematica-backen/api';
+const API_BASE_URL = 'https://final-telematica-backend-bydyz.ondigitalocean.app/api';
 
 // Elementos del DOM
 const loginForm = document.getElementById('loginForm');

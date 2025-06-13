@@ -1,0 +1,38 @@
+# Archivos de Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos de compilación
+bin/
+obj/
+out/
+
+# Archivos de debug
+*.pdb
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# Archivos de NuGet
+packages/
+*.nupkg
+
+# Archivos de Git
+.git/
+.gitignore
+README.md
+
+# Archivos de Docker
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db 

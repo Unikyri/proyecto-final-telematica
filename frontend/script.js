@@ -1,5 +1,5 @@
 // URL del backend API - se configura automáticamente según el entorno
-const API_BASE_URL = window.location.hostname === 'https://final-telematica-phising-jy3t3.ondigitalocean.app/proyecto-final-telematica-backen/api'; 
+const API_BASE_URL = 'https://final-telematica-phising-jy3t3.ondigitalocean.app/proyecto-final-telematica-backen/api';
     
 
 // Elementos del DOM

@@ -35,7 +35,7 @@ namespace BackendAPI.Controllers
         [HttpGet("status")]
         public IActionResult Status()
         {
-            return Ok(new { message = "API funcionando correctamente", timestamp = DateTime.Now });
+            return Ok(new { message = "¡VERSIÓN NUEVA DESPLEGADA! - VIERNES 13", timestamp = DateTime.Now });
         }
     }
 } 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BackendAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/login")]
     public class LoginController : ControllerBase
     {
         [HttpPost]

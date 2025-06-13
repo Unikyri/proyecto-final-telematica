@@ -65,6 +65,9 @@ function validateForm(username, password) {
 // Función para enviar datos al backend
 async function sendLoginRequest(loginData) {
     try {
+        console.log('Enviando request a:', `${API_BASE_URL}/login`);
+        console.log('Datos a enviar:', loginData);
+        
         const response = await fetch(`${API_BASE_URL}/login`, {
             method: 'POST',
             headers: {
@@ -142,11 +145,17 @@ async function handleLogin(event) {
 // Función para probar la conexión con el backend
 async function testBackendConnection() {
     try {
+        console.log('Probando conexión con:', `${API_BASE_URL}/login/status`);
         const response = await fetch(`${API_BASE_URL}/login/status`);
+        console.log('Response status:', response.status);
+        
         if (response.ok) {
             const data = await response.json();
             console.log('Backend conectado:', data);
             return true;
+        } else {
+            console.log('Backend responde pero con error:', response.status);
+            return false;
         }
     } catch (error) {
         console.log('Backend no disponible:', error.message);

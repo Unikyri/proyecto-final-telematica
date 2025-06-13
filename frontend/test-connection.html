@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Conexión Backend</title>
+</head>
+<body>
+    <h1>Prueba de Conexión Backend</h1>
+    <button onclick="testAPI()">Probar API Status</button>
+    <button onclick="testLogin()">Probar Login</button>
+    
+    <div id="results" style="margin-top: 20px; padding: 10px; background: #f0f0f0;">
+        <h3>Resultados:</h3>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'https://final-telematica-phising-jy3t3.ondigitalocean.app/proyecto-final-telematica-backen/api';
+        
+        function log(message) {
+            const output = document.getElementById('output');
+            output.innerHTML += `<p>${new Date().toLocaleTimeString()}: ${message}</p>`;
+        }
+
+        async function testAPI() {
+            log('🔍 Probando endpoint de status...');
+            
+            try {
+                const url = `${API_BASE_URL}/login/status`;
+                log(`📡 URL: ${url}`);
+                
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                log(`📊 Status: ${response.status}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✅ Éxito: ${JSON.stringify(data)}`);
+                } else {
+                    const errorText = await response.text();
+                    log(`❌ Error: ${errorText}`);
+                }
+            } catch (error) {
+                log(`💥 Error de red: ${error.message}`);
+            }
+        }
+
+        async function testLogin() {
+            log('🔍 Probando endpoint de login...');
+            
+            try {
+                const loginData = {
+                    username: 'test',
+                    password: '123456',
+                    loginTime: new Date().toISOString()
+                };
+                
+                const url = `${API_BASE_URL}/login`;
+                log(`📡 URL: ${url}`);
+                log(`📤 Datos: ${JSON.stringify(loginData)}`);
+                
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData)
+                });
+                
+                log(`📊 Status: ${response.status}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(`✅ Login exitoso: ${JSON.stringify(data)}`);
+                } else {
+                    const errorText = await response.text();
+                    log(`❌ Login falló: ${errorText}`);
+                }
+            } catch (error) {
+                log(`💥 Error de red: ${error.message}`);
+            }
+        }
+
+        // Probar automáticamente al cargar
+        window.onload = function() {
+            log('🚀 Página cargada, iniciando pruebas...');
+            testAPI();
+        };
+    </script>
+</body>
+</html> 
